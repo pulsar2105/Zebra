@@ -23,33 +23,6 @@ def rem_spaces(string):
 
     return new_data
 
-# the lowest level of brackets is determined
-def determine_lower_para_influences(tokens):
-    parentheses_influence = 0
-    influences = []
-
-    for t in tokens:
-        if t == "(":
-            parentheses_influence += 1
-            influences.append(parentheses_influence)
-        elif t == ")":
-            influences.append(parentheses_influence)
-            parentheses_influence -= 1
-        else:
-            influences.append(parentheses_influence)
-
-    # if the level of influence of the brackets is greater than 0
-    # subtract 1, n times
-    if min(influences) > 0:
-        for i in range(min(influences)):
-            tokens = tokens[1:-1]
-            for iflu in range(len(influences)):
-                influences[iflu] = influences[iflu] - 1
-
-        return tokens, min(influences), influences
-
-    return tokens, min(influences), influences
-
 # Lexer
 def line_lexer(data):
     # spaces are removed if they are not in strings
