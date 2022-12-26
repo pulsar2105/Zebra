@@ -14,7 +14,7 @@ operators_priority = [["="],
 
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
-opening_closing_characters = ["(", ")", "[", "]", "{", "}"]
+opening_closing_characters = opening_characters + closing_characters
 
 # on détermine le niveau de parenthèses le plus bas
 def determine_lower_para_influences(tokens):
