@@ -1,9 +1,9 @@
-import math
 import re
 
 import errors as err
 
-operators = [",", ":", "=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor"]
+operators = ["=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor"]
+separators = [".", ",", ":", ";"]
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
 opening_closing_characters = opening_characters + closing_characters
@@ -41,6 +41,11 @@ def line_lexer(data):
             i = 1
             while data[0] != data[i]:
                 i += 1
+
+                # escaped character \" or \'
+                if data[i] == "\\":
+                    continue # skip
+
                 if i == len(data):
                     raise Exception("Error: Missing end of string")
             tokens.append(data[0:i+1])
@@ -88,9 +93,9 @@ def line_lexer(data):
                 tokens.append(int(_int.group()))
                 data = data[len(_int.group()):]
 
-        # variable size operators are managed ("+" size 1) ("and" size 3)
+        # variable size operators are managed ("+" size 1) ("and" size 3) and separators are handled also (.,:;)
         for i in range(3, 0, -1):
-            if data[:i] in operators or data[:i] in opening_closing_characters:
+            if data[:i] in operators + separators or data[:i] in opening_closing_characters:
                 tokens.append(data[:i])
                 data = data[i:]
                 break
@@ -116,14 +121,14 @@ def line_lexer(data):
 
     return tokens
 
-# Teste
-data = "b = -(10 - value * (-3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - value)"
-# on vérifie si il y des erreurs nativement dans la ligne
+# Test
+data = "b = -(10 - value * (-3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - sun.value)"
+# we check if there are errors natively in the line
 err.string_error(data)
-# on fait l'analyse syntaxique
+# we do the syntactic analysis
 print(line_lexer(data))
 
-# mode infinie
+# infinite mode
 while True:
     data = input(">>> ")
     err.string_error(data)
