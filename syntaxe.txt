@@ -17,7 +17,7 @@ dictionnaire => {"name": "hey", "age": 3} # Dictionary of values (dict)
 booleen      => true/false                # Boolean (bool)
 None         => None                      # zero value (Pas attribuée)
 
-opérateurs              => [+, -, *, /, //, ^, % (modulo), =]
+operators               => [+, -, *, /, //, ^, % (modulo), =]
 opérateursCondensés     => [+=, -=, *=, /=, **=, #=, %=]
 opérateursDeComparaison => [==, !=, >, <, >=, <=, in, not, not in]
 opérateursLogiques      => [and, or, not, xor]

@@ -6,7 +6,7 @@ operators_priority = [["="],
                       ["^", "!"]]
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
-opening_closing_characters = ["(", ")", "[", "]", "{", "}"]
+opening_closing_characters = opening_characters + closing_characters
 
 def string_error(string):
     # we check if the number of "\" and/or "\'" is correct
@@ -29,12 +29,11 @@ def errors(tokens):
 
     for i in range(1, len(tokens)):
         if tokens[i] in operators:
-            if tokens[i-1] in operators:
+            if tokens[i-1] in operators and tokens[i] != "-":
                 raise Exception("Error: Wrong syntax")
-            elif tokens[i-1] in opening_characters and tokens[i] not in ["^", "!", "="]:
+            elif tokens[i-1] in opening_characters and tokens[i] != "-":
                 raise Exception("Error: Wrong syntax")
 
     # errors to dev :
     # -a = 10 => forbiden
     # <operator><operator> => forbiden
-    #
