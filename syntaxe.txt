@@ -1,0 +1,60 @@
+variableDefinis   => <name> = <value> # variable with its value
+variableIndefinis => <type> <name> # variable sans valeur (None)
+
+types:
+
+int         => variable bits
+float       => 128 bits
+list <type> => liste
+str         => 32 bits
+bool        => 8 bits
+
+nombre       => 10.5                      # int or float number
+chaine       => "chaine"                  # List of characters (string)
+liste        => [1, "hey", 3]             # List of values (list)
+tuple        => (1, "hey", 3)             # List of values (tuple) pas modifiable
+dictionnaire => {"name": "hey", "age": 3} # Dictionary of values (dict)
+booleen      => true/false                # Boolean (bool)
+None         => None                      # zero value (Pas attribuée)
+
+opérateurs              => [+, -, *, /, //, ^, % (modulo), =]
+opérateursCondensés     => [+=, -=, *=, /=, **=, #=, %=]
+opérateursDeComparaison => [==, !=, >, <, >=, <=, in, not, not in]
+opérateursLogiques      => [and, or, not, xor]
+intervalleListe         => [<start> : <end> : <step>] # interval of a list
+
+condition => if <condition>: # condition if
+sinon si  => elif <condition>: # condition elif
+sinon     => else: # condition else
+
+boucleConditionnelle => while <condition>: # boucle while
+
+boucleConditionnelleFaire => do:
+                             <action(s)>
+                             while <condition>: # boucle do while
+
+bouclePour                => for <variable(s)> in <liste>: # boucle for
+
+priorités de gauche à droite:
+++++ => (), [] # instruction à faire en premier
++++  => **, <nombre>! # puissance, factorielle
+++   => *, /, //, % # division, modulo
++    => +, - # addition, soustraction
+
+fonctions => def <nom>(<paramètres>): # fonction
+appeler une fonction => <nom>(<paramètres>) # appeler une fonction
+
+fonctions de base:
+
+print(<message(s)>)          # afficher une/des valeur(s) séparées par des virgules
+input(<message(s)>)          # affiche le message et demander une valeur
+len(<liste>)                 # longueur d'une liste
+range(<début>, <fin>, <pas>) # création de liste (range)
+max(<liste>)                 # valeur maximum d'une liste
+min(<liste>)                 # valeur minimum d'une liste
+round(<valeur>)              # arrondi à l'entier le plus proche
+floor(<valeur>)              # arrondi à l'entier supèrieur
+cell(<valeur>)               # arrondi à l'entier inferieur
+int(<valeur>)                # convertit si possible une valeur en entier
+float(<valeur>)              # convertit si possible une valeur en float
+str(<valeur>)                # convertit si possible une valeur en string
