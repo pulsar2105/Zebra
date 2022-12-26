@@ -3,7 +3,7 @@ import re
 
 import errors as err
 
-operators = ["=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor"]
+operators = [",", ":", "=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor"]
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
 opening_closing_characters = opening_characters + closing_characters
@@ -126,9 +126,7 @@ def line_lexer(data):
         if len(data) > 0 and data[0].isalpha():
             boolean = re.match(r"true|false", data)
 
-            function = re.match(r'\w+\([^\)]*\){1,}(\.[^\)]*\))?', data)
-
-            variable = re.match(r"\w+", data)
+            variable_function = re.match(r"\w+", data)
 
             if boolean:
                 if boolean.group() == data[:len(boolean.group())]:
@@ -138,15 +136,10 @@ def line_lexer(data):
                         tokens.append(False)
                     data = data[len(boolean.group()):]
 
-            elif function:
-                if function.group() == data[:len(function.group())]:
-                    tokens.append(function.group())
-                    data = data[len(function.group()):]
-
-            elif variable:
-                if variable.group() == data[:len(variable.group())]:
-                    tokens.append(variable.group())
-                    data = data[len(variable.group()):]
+            elif variable_function:
+                if variable_function.group() == data[:len(variable_function.group())]:
+                    tokens.append(variable_function.group())
+                    data = data[len(variable_function.group()):]
 
     return tokens
 
@@ -156,8 +149,6 @@ data = "b = -(10 - value * (-3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos
 err.string_error(data)
 # on fait l'analyse syntaxique
 print(line_lexer(data))
-
-# truc à faire : lexer pour les fonctions
 
 # mode infinie
 while True:
