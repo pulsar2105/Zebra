@@ -68,7 +68,7 @@ def if_one_function(tokens):
     # first check
     if type(tokens) == list and len(tokens) > 1:
         if type(tokens[0]) == str:
-            if re.match(r"\w+", tokens[0]) and tokens[1] == "(" and  not tokens[0] in operators:
+            if re.match(r"\w+", tokens[0]) and tokens[1] == "(" and not tokens[0] in operators:
                 # if the last parenthesis is to the function^
                 influ = 0
                 for i in range(1, len(tokens)):
@@ -88,8 +88,41 @@ def if_one_function(tokens):
     else:
         return False
 
+def is_list_tuple(tokens):
+    # first check
+    if type(tokens) == list and len(tokens) > 1:
+        if tokens[0] == "[":
+            if tokens[1] == "]":
+                return True, []
+            else:
+                # we get the arguments
+                arguments = []
+                influ = 1
+                check_point = 1
+                i = 1
+                while influ != 0 and i != len(tokens):
+                    # we add an argument (little or big) to the list
+                    if tokens[i] in [",", "]"] and influ == 1:
+                        arguments.append(tokens[check_point:i])
+                        check_point = i+1
+                    if tokens[i] in opening_characters:
+                        influ += 1
+                    elif tokens[i] in closing_characters:
+                        influ -= 1
+                    i += 1
+
+                return True, arguments
+        else:
+            return False, None
+    else:
+        return False, None
+
 # Parser
 def line_parser(tokens):
+
+    # we detect floats number to avoid parsing "."
+    if type(tokens) == str:
+        return tokens
 
     # we check for the presence of functions
     if if_one_function(tokens):
@@ -101,7 +134,7 @@ def line_parser(tokens):
         i = 2 # 2 because we skip the fonction name and the first "("
         check_point = 2
         while tokens[i] != ")":
-            if tokens[i] in [","]:
+            if tokens[i] == ",":
                 arguments.append(tokens[check_point:i])
                 check_point = i+1
             i += 1
@@ -116,8 +149,19 @@ def line_parser(tokens):
         # "*" is for unpack all elements
         return [action, *arguments]
 
-    # operators part
+    # we check for the presence of list
+    elif is_list_tuple(tokens)[0]:
+        action = "list"
+        true_false, arguments = is_list_tuple(tokens)
 
+        # arguments are parsed
+        for i in range(len(arguments)):
+            arguments[i] = line_parser(arguments[i])
+
+        # "*" is for unpack all elements
+        return [action, *arguments]
+
+    # operators part
     # we find the operator who is made in LAST
     operator, pos = search_min_priority(tokens, operators, operators_priority)
 
