@@ -177,7 +177,7 @@ Project Link: [https://github.com/PULSAR2105/Zebra](https://github.com/PULSAR210
 ## Acknowledgments
 
 <a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
+  <img src = "https://contrib.rocks/image?repo = pulsar2105/Zebra"/>
 </a>
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
