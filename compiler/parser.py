@@ -31,8 +31,8 @@ def determine_lower_para_influences(tokens):
         else:
             influences.append(parentheses_influence)
 
-    # si le niveau d'influence des parenthèses est supérieur à 0
-    # on soustrait 1, n fois
+    # if the level of influence of the brackets is greater than 0
+    # subtract 1, n times
     if min(influences) > 0:
         for i in range(min(influences)):
             tokens = tokens[1:-1]
@@ -141,45 +141,7 @@ def line_parser(tokens):
     # "*" is for unpack all elements
     return [action, *arguments]
 
-# we create the tree of an entire file
-def parser_global(lines, indent_level):
-    global_tree = []
-    i = 0
-    while i < len(lines) and lines[i].startswith(" " * indent_level):
-        # we get the line
-        line = lines[i]
-
-        # conditions are managed
-        if line[:indent_level * 4 + 3] == "    " * indent_level + "if ":
-            # we create the tree of the condition
-            condition = re.match(r".+\:", line[indent_level * 4 + 3:]).group()[:-1]
-            condition = line_parser(lexer.line_lexer(condition))
-            # we create the tree of the suite
-            i += 1
-            suite = parser_global(lines[i:], indent_level + 1)
-            i += len(suite)
-            global_tree.append(["if", condition] + suite)
-
-        # we manage the while loop
-        elif line[:indent_level * 4 + 5] == "    " * indent_level + "while ":
-            # we create the tree of the condition
-            condition = re.match(r".+\:", line[indent_level * 4 + 5:]).group()[:-1]
-            condition = line_parser(lexer.line_lexer(condition))
-            # we create the tree of the suite
-            i += 1
-            suite = parser_global(lines[i:], indent_level + 1)
-            i += len(suite)
-            global_tree.append(["while", condition] + suite)
-
-        else:
-            # we create the tree of the line
-            global_tree.append(line_parser(lexer.line_lexer(line)))
-
-        i += 1
-
-    return global_tree
-
-# Test
+# Test-----------------------
 data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10) * cos(10 + 1) * 'abcde' - 10 - sun.mass)"
 
 # we check if there are errors natively in the line

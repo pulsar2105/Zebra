@@ -9,7 +9,7 @@ closing_characters = [")", "]", "}"]
 opening_closing_characters = opening_characters + closing_characters
 
 def string_error(string):
-    # we check if the number of "\" and/or "\'" is correct
+    # we check if the number of "\"" and/or "\'" is correct
     if string.count("\"") % 2 != 0:
         raise Exception("Error: \" expected")
     elif string.count("\'") % 2 != 0:

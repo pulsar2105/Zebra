@@ -110,7 +110,7 @@ def line_lexer(data):
     return tokens
 
 """
-# Test
+# Test-----------------------
 data = "b = -(-10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - sun.value)"
 # we check if there are errors natively in the line
 err.string_error(data)

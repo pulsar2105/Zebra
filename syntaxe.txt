@@ -1,60 +1,67 @@
-variableDefinis   => <name> = <value> # variable with its value
-variableIndefinis => <type> <name> # variable sans valeur (None)
+Types and variables:
 
-types:
+defined variable     => <name> = <value> # variable with it's value
+not defined variable => <type> <name>    # minimum size variable without value
 
 int         => variable bits
 float       => 128 bits
-list <type> => liste
+list <type> => list
 str         => 32 bits
 bool        => 8 bits
 
-nombre       => 10.5                      # int or float number
-chaine       => "chaine"                  # List of characters (string)
-liste        => [1, "hey", 3]             # List of values (list)
-tuple        => (1, "hey", 3)             # List of values (tuple) pas modifiable
-dictionnaire => {"name": "hey", "age": 3} # Dictionary of values (dict)
-booleen      => true/false                # Boolean (bool)
-None         => None                      # zero value (Pas attribuée)
+int         => 42                          # int value
+float       => 3.14159265                  # float value
+string      => "string"                    # List of characters (string)
+list        => [1, "hey", 3]               # List of values (list)
+tuple       => (1, "hey", 3)               # List of values (tuple) not modifiable
+dictionnary => {"name": "Lucas", "age": 3} # Dictionary of values (dict)
+booleen     => true/false                  # Boolean (bool)
+None        => None                        # zero value (None)
 
-operators               => [+, -, *, /, //, ^, % (modulo), =]
-opérateursCondensés     => [+=, -=, *=, /=, **=, #=, %=]
-opérateursDeComparaison => [==, !=, >, <, >=, <=, in, not, not in]
-opérateursLogiques      => [and, or, not, xor]
-intervalleListe         => [<start> : <end> : <step>] # interval of a list
+Operators:
+operators             => [+, -, *, /, //, ^, % (modulo), =]
+condensed operators   => [+=, -=, *=, /=, **=, #=, %=]
+comparative operators => [==, !=, >, <, >=, <=, in, not]
+logics operators      => [and, or, not, xor]
+list range            => [<start> : <end> : <step>] # interval of a list
 
+Conditions:
 condition => if <condition>: # condition if
-sinon si  => elif <condition>: # condition elif
-sinon     => else: # condition else
+else if   => elif <condition>: # condition elif
+else      => else: # condition else
 
-boucleConditionnelle => while <condition>: # boucle while
+Loops :
+conditionalLoop => while <condition>: # boucle while
+loopFor         => for <variable(s)> in <list>: # boucle for
 
-boucleConditionnelleFaire => do:
-                             <action(s)>
-                             while <condition>: # boucle do while
+Priorities from left to right:
+++++++++ "()", "[]", "{}"
++++++++  "="
+++++++   "and", "or", "xor", "in"
++++++    "<", ">", "<=", ">=", "!=", "=="
+++++     "+", "-"
++++      "*", "/", "//", "%"
+++       "^"
++        "." #opp
 
-bouclePour                => for <variable(s)> in <liste>: # boucle for
+Functions:
+functions => def <nom>(<parameters>):
+call a function => <nom>(<parameters>)
 
-priorités de gauche à droite:
-++++ => (), [] # instruction à faire en premier
-+++  => **, <nombre>! # puissance, factorielle
-++   => *, /, //, % # division, modulo
-+    => +, - # addition, soustraction
+Basic functions:
+print(<message(s)>)           # display value(s) separated by commas
+input(<message(s)>)           # displays the message and requests a value
 
-fonctions => def <nom>(<paramètres>): # fonction
-appeler une fonction => <nom>(<paramètres>) # appeler une fonction
+len(<list>)                   # length of a list
+range(<start>, <end>, <step>) # list creation (range)
 
-fonctions de base:
+max(<list>)                   # maximum value of a list
+min(<list>)                   # minimum value of a list
 
-print(<message(s)>)          # afficher une/des valeur(s) séparées par des virgules
-input(<message(s)>)          # affiche le message et demander une valeur
-len(<liste>)                 # longueur d'une liste
-range(<début>, <fin>, <pas>) # création de liste (range)
-max(<liste>)                 # valeur maximum d'une liste
-min(<liste>)                 # valeur minimum d'une liste
-round(<valeur>)              # arrondi à l'entier le plus proche
-floor(<valeur>)              # arrondi à l'entier supèrieur
-cell(<valeur>)               # arrondi à l'entier inferieur
-int(<valeur>)                # convertit si possible une valeur en entier
-float(<valeur>)              # convertit si possible une valeur en float
-str(<valeur>)                # convertit si possible une valeur en string
+round(<value>)                # rounded to the nearest whole number
+floor(<value>)                # rounded up to the nearest whole number
+cell(<value>)                 # rounded down to the nearest whole number
+
+int(<value>)                  # converts a value to an integer if possible
+float(<value>)                # converts a value to a float if possible
+str(<value>)                  # converts a value to a string if possible
