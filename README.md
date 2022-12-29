@@ -123,6 +123,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- ROADMAP -->
+<!--
 ## Roadmap
 
 - [x] Add Changelog
@@ -132,9 +133,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
+-->
 
 
 
@@ -166,7 +165,7 @@ Distributed under the GPL v3.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@pulsar2105](https://twitter.com/pulsar2105) - email@example.com
+Your Name - [@pulsar2105](https://twitter.com/pulsar2105) - wingstone.hsart@gmail.com
 
 Project Link: [https://github.com/PULSAR2105/Zebra](https://github.com/PULSAR2105/Zebra)
 
