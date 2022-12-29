@@ -1,6 +1,3 @@
-
-
-
 <!-- PROJECT SHIELDS -->
 
 Zebra ![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/total)</a> ![Contributors](https://img.shields.io/github/contributors/pulsar2105/Zebra?color=dark-green)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a> ![License](https://img.shields.io/github/license/pulsar2105/Zebra)</a>
@@ -10,11 +7,8 @@ Zebra ![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/tota
 <br />
 <div align="center">
   <a href="https://github.com/PULSAR2105/Zebra">
-    <img src="logo/icon_v1.0.png " alt="Logo" width="80" height="80">
+    <img src="logo/icon_v1.0.png " alt="Logo" width="100" height="100">
   </a>
-
-  <h3 align="center">Zebra</h3>
-
   <p align="center">
     An awesome programming langauage, compiled, fast and simple!
   </p>
@@ -53,8 +47,6 @@ Zebra ![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/tota
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
@@ -66,7 +58,6 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -83,7 +74,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -119,7 +109,6 @@ _Below is an example of how you can instruct your audience on installing and set
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -130,7 +119,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -147,7 +135,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -165,16 +152,14 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GPL v3.0 License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -183,9 +168,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@pulsar2105](https://twitter.com/pulsar2105) - email@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/PULSAR2105/Zebra](https://github.com/PULSAR2105/Zebra)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
