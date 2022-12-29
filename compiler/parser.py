@@ -3,13 +3,14 @@ import re
 import lexer
 import errors as err
 
-operators = ["=", "+", "-", "*", "/", "//", "%", "^", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "in"]
+operators = ["=", ".", "+", "-", "*", "/", "//", "%", "^", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "in"]
 operators_priority = [["="],
                       ["and", "or", "xor", "in"],
                       ["<", ">", "<=", ">=", "!=", "=="],
                       ["+", "-"],
                       ["*", "/", "//", "%"],
-                      ["^"]]
+                      ["^"],
+                      ["."]]
 
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
@@ -115,6 +116,8 @@ def line_parser(tokens):
         # "*" is for unpack all elements
         return [action, *arguments]
 
+    # operators part
+
     # we find the operator who is made in LAST
     operator, pos = search_min_priority(tokens, operators, operators_priority)
 
@@ -177,7 +180,7 @@ def parser_global(lines, indent_level):
     return global_tree
 
 # Test
-data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - sun.value)"
+data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10) * cos(10 + 1) * 'abcde' - 10 - sun.mass)"
 
 # we check if there are errors natively in the line
 err.string_error(data)

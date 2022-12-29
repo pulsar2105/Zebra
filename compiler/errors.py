@@ -24,7 +24,7 @@ def errors(tokens):
 
     # we check if the operators are well placed
     # initial case
-    if tokens[0] in operators:
+    if tokens[0] in operators and tokens[0] != "-":
         raise Exception("Error: Wrong syntax")
 
     for i in range(1, len(tokens)):
