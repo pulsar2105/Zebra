@@ -1,3 +1,6 @@
+Comments:
+# <your comment>
+
 Types and variables:
 
 defined variable     => <name> = <value> # variable with it's value
@@ -19,20 +22,20 @@ booleen     => true/false                  # Boolean (bool)
 None        => None                        # zero value (None)
 
 Operators:
-operators             => [+, -, *, /, //, ^, % (modulo), =]
-condensed operators   => [+=, -=, *=, /=, **=, #=, %=]
+operators             => [=, +, -, *, /, //, ^, % (modulo)]
+condensed operators   => [+=, -=, *=, /=, //=, ^=, %=]
 comparative operators => [==, !=, >, <, >=, <=, in, not]
-logics operators      => [and, or, not, xor]
+logics operators      => [and, or, xor, not]
 list range            => [<start> : <end> : <step>] # interval of a list
 
 Conditions:
-condition => if <condition>: # condition if
-else if   => elif <condition>: # condition elif
-else      => else: # condition else
+condition => if <condition>:
+else if   => elif <condition>:
+else      => else:
 
 Loops :
-conditionalLoop => while <condition>: # boucle while
-loopFor         => for <variable(s)> in <list>: # boucle for
+conditional loop => while <condition>:
+loop for         => for <variable(s)> in <list>:
 
 Priorities from left to right:
 ++++++++ "()", "[]", "{}"
@@ -45,8 +48,12 @@ Priorities from left to right:
 +        "." #opp
 
 Functions:
-functions => def <nom>(<parameters>):
-call a function => <nom>(<parameters>)
+functions       => def <name>(<parameters>):
+call a function => <name>(<parameters>)
+
+Objects:
+attributes => <object>.<attribut>
+functions  => <objects>.<functions>()
 
 Basic functions:
 print(<message(s)>)           # display value(s) separated by commas
