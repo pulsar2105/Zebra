@@ -1,6 +1,6 @@
 import re
 
-import lexer
+import lexer as lex
 import errors as err
 
 operators = ["=", ".", "+", "-", "*", "/", "//", "%", "^", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "in"]
@@ -147,7 +147,7 @@ data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10) * cos(10
 # we check if there are errors natively in the line
 err.string_error(data)
 # we do the syntactic analysis
-tokens = lexer.line_lexer(data)
+tokens = lex.line_lexer(data)
 print(tokens)
 # the syntax is checked
 err.errors(tokens)
@@ -159,7 +159,7 @@ print(tree)
 while True:
     data = input(">>> ")
     err.string_error(data)
-    tokens = lexer.line_lexer(data)
+    tokens = lex.line_lexer(data)
     print(tokens)
     err.errors(tokens)
     tree = line_parser(tokens)

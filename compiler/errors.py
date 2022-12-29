@@ -1,9 +1,11 @@
-operators = ["=", "+", "-", "*", "/", "//", "%", "^", "!", "and", "or", "xor"]
+operators = ["=", ".", "+", "-", "*", "/", "//", "%", "^", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "in"]
 operators_priority = [["="],
-                      ["and", "or", "xor"],
+                      ["and", "or", "xor", "in"],
+                      ["<", ">", "<=", ">=", "!=", "=="],
                       ["+", "-"],
                       ["*", "/", "//", "%"],
-                      ["^", "!"]]
+                      ["^"],
+                      ["."]]
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
 opening_closing_characters = opening_characters + closing_characters

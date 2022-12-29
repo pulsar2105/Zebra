@@ -15,13 +15,13 @@ def line_lexer(data):
 
     while data != "":
         # comments are ignored
-        if data[0] == "#":
+        if data[0] in ["#", "\n"]:
             break
 
         # spaces are ignored
         if data[0] == " ":
             data = data[1:]
-            continue # skip
+            continue # skip spaces
 
         # we manage strings of characters
         if data[0] == '"' or data[0] == "'":
