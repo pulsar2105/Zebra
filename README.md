@@ -21,7 +21,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/PULSAR2105/Zebra">
-    <img src="logo/icon_v1.0.png " alt="Logo" width="80" height="80" style="border-radius:10px;">
+    <img src="logo/icon_v1.0.png " alt="Logo" width="80" height="80" border-radius="10px">
   </a>
 
   <h3 align="center">Zebra</h3>
