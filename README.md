@@ -1,27 +1,16 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 
 
 <!-- PROJECT SHIELDS -->
-![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/total)</a>
-![Contributors](https://img.shields.io/github/contributors/pulsar2105/Zebra?color=dark-green)</a>
-![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a>
-![License](https://img.shields.io/github/license/pulsar2105/Zebra)</a>
 
+Zebra ![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/total)</a> ![Contributors](https://img.shields.io/github/contributors/pulsar2105/Zebra?color=dark-green)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a> ![License](https://img.shields.io/github/license/pulsar2105/Zebra)</a>
+===============
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/PULSAR2105/Zebra">
-    <img src="logo/icon_v1.0.png " alt="Logo" width="80" height="80" border-radius="10px">
+    <img src="logo/icon_v1.0.png " alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Zebra</h3>
