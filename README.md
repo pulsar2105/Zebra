@@ -176,7 +176,7 @@ Project Link: [https://github.com/PULSAR2105/Zebra](https://github.com/PULSAR210
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/pulsar2105Zebra/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo = pulsar2105/Zebra"/>
 </a>
 
