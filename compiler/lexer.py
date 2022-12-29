@@ -2,32 +2,14 @@ import re
 
 import errors as err
 
-operators = ["=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor"]
+operators = ["=", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "not"]
 separators = [".", ",", ":", ";"]
 opening_characters = ["(", "[", "{"]
 closing_characters = [")", "]", "}"]
 opening_closing_characters = opening_characters + closing_characters
 
-def rem_spaces(data):
-    influ = 0
-    new_data = ""
-    for i in range(len(data)):
-        if data[i] == '"' or data[i] == "'":
-            influ += 1
-        if (data[i] == '"' or data[i] == "'") and influ != 0:
-            influ -= 1
-        if influ == 0 and data[i] == " ":
-            continue
-
-        new_data += data[i]
-
-    return new_data
-
 # Lexer
 def line_lexer(data):
-    # spaces are removed if they are not in strings
-    data = rem_spaces(data)
-
     # we create the list of tokens (lexer)
     tokens = []
 
@@ -35,6 +17,11 @@ def line_lexer(data):
         # comments are ignored
         if data[0] == "#":
             break
+
+        # spaces are ignored
+        if data[0] == " ":
+            data = data[1:]
+            continue # skip
 
         # we manage strings of characters
         if data[0] == '"' or data[0] == "'":
@@ -50,6 +37,7 @@ def line_lexer(data):
                     raise Exception("Error: Missing end of string")
             tokens.append(data[0:i+1])
             data = data[i+1:]
+            continue
 
         # negative numbers are managed
         if len(data) > 0 and data[0] == "-":
@@ -61,11 +49,11 @@ def line_lexer(data):
                         _int = re.match(r"-?\d+", data)
 
                         if _float and _float.group() == data[:len(_float.group())]:
-                            tokens.append(float(_float.group()))
+                            tokens.append(_float.group())
                             data = data[len(_float.group()):]
 
                         elif _int and _int.group() == data[:len(_int.group())]:
-                            tokens.append(int(_int.group()))
+                            tokens.append(_int.group())
                             data = data[len(_int.group()):]
             else:
                 if data[1].isdigit():
@@ -73,11 +61,11 @@ def line_lexer(data):
                     _int = re.match(r"-?\d+", data)
 
                     if _float and _float.group() == data[:len(_float.group())]:
-                        tokens.append(float(_float.group()))
+                        tokens.append(_float.group())
                         data = data[len(_float.group()):]
 
                     elif _int and _int.group() == data[:len(_int.group())]:
-                        tokens.append(int(_int.group()))
+                        tokens.append(_int.group())
                         data = data[len(_int.group()):]
 
         # positive numbers are managed
@@ -86,11 +74,11 @@ def line_lexer(data):
             _int = re.match(r"\d+", data)
 
             if _float and _float.group() == data[:len(_float.group())]:
-                tokens.append(float(_float.group()))
+                tokens.append(_float.group())
                 data = data[len(_float.group()):]
 
             elif _int and _int.group() == data[:len(_int.group())]:
-                tokens.append(int(_int.group()))
+                tokens.append(_int.group())
                 data = data[len(_int.group()):]
 
         # variable size operators are managed ("+" size 1) ("and" size 3) and separators are handled also (.,:;)
@@ -123,7 +111,7 @@ def line_lexer(data):
 
 """
 # Test
-data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - sun.value)"
+data = "b = -(-10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10, 10) * cos(10 + 1) * 'abcde' - 10 - sun.value)"
 # we check if there are errors natively in the line
 err.string_error(data)
 # we do the syntactic analysis
