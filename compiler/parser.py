@@ -3,7 +3,8 @@ import re
 import lexer as lex
 import errors as err
 
-operators = ["=", ".", "+", "-", "*", "/", "//", "%", "^", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "in"]
+operators = ["=", "=>", "+", "-", "*", "/", "//", "%", "^", "+=", "-=", "*=", "/=", "//=", "%=", "^=", "<", ">", "<=", ">=", "!=", "==","and", "or", "xor", "not"]
+
 operators_priority = [["="],
                       ["and", "or", "xor", "in"],
                       ["<", ">", "<=", ">=", "!=", "=="],
@@ -88,11 +89,11 @@ def if_one_function(tokens):
     else:
         return False
 
-def is_list_tuple(tokens):
+def is_list_dict(tokens, opening_character, closing_character):
     # first check
     if type(tokens) == list and len(tokens) > 1:
-        if tokens[0] == "[":
-            if tokens[1] == "]":
+        if tokens[0] == opening_character:
+            if tokens[1] == closing_character:
                 return True, []
             else:
                 # we get the arguments
@@ -102,7 +103,7 @@ def is_list_tuple(tokens):
                 i = 1
                 while influ != 0 and i != len(tokens):
                     # we add an argument (little or big) to the list
-                    if tokens[i] in [",", "]"] and influ == 1:
+                    if tokens[i] in [",", "=>", closing_character] and influ == 1:
                         arguments.append(tokens[check_point:i])
                         check_point = i+1
                     if tokens[i] in opening_characters:
@@ -150,9 +151,21 @@ def line_parser(tokens):
         return [action, *arguments]
 
     # we check for the presence of list
-    elif is_list_tuple(tokens)[0]:
+    elif is_list_dict(tokens, "[", "]")[0]:
         action = "list"
-        true_false, arguments = is_list_tuple(tokens)
+        true_false, arguments = is_list_dict(tokens, "[", "]")
+
+        # arguments are parsed
+        for i in range(len(arguments)):
+            arguments[i] = line_parser(arguments[i])
+
+        # "*" is for unpack all elements
+        return [action, *arguments]
+
+    # we check for the presence of list
+    elif is_list_dict(tokens, "{", "}")[0]:
+        action = "dict"
+        true_false, arguments = is_list_dict(tokens, "{", "}")
 
         # arguments are parsed
         for i in range(len(arguments)):
