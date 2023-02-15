@@ -1,6 +1,10 @@
 Comments:
 # <your comment>
 
+Import other contents:
+import <library>   # other installed library
+import <code_path> # other code file to import
+
 Types and variables:
 
 defined variable     => <name> = <value> # variable with it's value
