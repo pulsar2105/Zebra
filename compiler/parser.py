@@ -40,6 +40,12 @@ def determine_lower_para_influences(tokens):
     # if the level of influence of the brackets is greater than 0
     # we ask to remove the extra brackets again
     if min(influences) > 0:
+        # we don't remove brackets if there is comma in there
+        if min(influences) == 1:
+            for i in range(len(tokens)):
+                if tokens[i] == "," and influences[i] == min(influences):
+                    return tokens, min(influences), influences
+
         tokens = tokens[1:-1]
         return determine_lower_para_influences(tokens)
 
@@ -71,7 +77,7 @@ def if_one_function(tokens):
     if type(tokens) == list and len(tokens) > 1:
         if type(tokens[0]) == str:
             if re.match(r"\w+", tokens[0]) and tokens[1] == "(" and not tokens[0] in operators:
-                # if the last parenthesis is to the function^
+                # if the last parenthesis is to the function
                 influ = 0
                 for i in range(1, len(tokens)):
                     if tokens[i] == "(":
@@ -91,14 +97,15 @@ def if_one_function(tokens):
         return False
 
 def is_list_dict(tokens, opening_character, closing_character):
-    # first check
+    # control check (to avoid error)
     if type(tokens) == list and len(tokens) > 1:
+        # first check
         if tokens[0] == opening_character:
             # list/dict empty
             if tokens[1] == closing_character:
                 return True, []
             else:
-                # we get the list/dict elements
+                # we get the list/dict/tuple elements
                 arguments = []
                 influ = 1
                 check_point = 1
@@ -108,10 +115,16 @@ def is_list_dict(tokens, opening_character, closing_character):
                     if tokens[i] in [",", "=>", closing_character] and influ == 1:
                         arguments.append(tokens[check_point:i])
                         check_point = i+1
+
+                    # we stop at the end off arguemnts ex: (10,) for avoid null arguement
+                    if tokens[i] == "," and tokens[i+1] == closing_character:
+                        break
+
                     if tokens[i] in opening_characters:
                         influ += 1
                     elif tokens[i] in closing_characters:
                         influ -= 1
+
                     i += 1
 
                 return True, arguments
@@ -119,6 +132,55 @@ def is_list_dict(tokens, opening_character, closing_character):
             return False, None
     else:
         return False, None
+
+def is_tuple(tokens):
+    # control check (to avoid error)
+    if type(tokens) == list and len(tokens) > 1:
+
+        # check
+        good = False
+        influ = 0
+        for token in tokens:
+            if token == "(":
+                influ += 1
+            elif token == ")":
+                influ -= 1
+            elif token == "," and influ == 1:
+                good = True
+
+        if good and tokens[0] == "(":
+            # tuple empty
+            if tokens == ["(", ",", ")"]:
+                return True, []
+            else:
+                # we get the tuple elements
+                arguments = []
+                influ = 1
+                check_point = 1
+                i = 1
+                while influ != 0 and i != len(tokens):
+                    # we add an argument (little or big) to the list
+                    if tokens[i] in [",", ")"] and influ == 1:
+                        arguments.append(tokens[check_point:i])
+                        check_point = i+1
+
+                    # we stop at the end off arguemnts ex: (10,) for avoid null arguement
+                    if tokens[i] == "," and tokens[i+1] == ")":
+                        break
+
+                    if tokens[i] in "(":
+                        influ += 1
+                    elif tokens[i] in ")":
+                        influ -= 1
+
+                    i += 1
+
+                return True, arguments
+        else:
+            return False, None
+    else:
+        return False, None
+
 
 # Parser
 def line_parser(tokens):
@@ -152,6 +214,18 @@ def line_parser(tokens):
         # "*" is for unpack all elements
         return [action, *arguments]
 
+    # we check for the presence of tuple
+    elif is_tuple(tokens)[0]:
+        action = "tuple"
+        true_false, arguments = is_tuple(tokens)
+
+        # arguments are parsed
+        for i in range(len(arguments)):
+            arguments[i] = line_parser(arguments[i])
+
+        # "*" is for unpack all elements
+        return [action, *arguments]
+
     # we check for the presence of list
     elif is_list_dict(tokens, "[", "]")[0]:
         action = "list"
@@ -164,7 +238,7 @@ def line_parser(tokens):
         # "*" is for unpack all elements
         return [action, *arguments]
 
-    # we check for the presence of list
+    # we check for the presence of dict
     elif is_list_dict(tokens, "{", "}")[0]:
         action = "dict"
         true_false, arguments = is_list_dict(tokens, "{", "}")
