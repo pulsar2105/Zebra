@@ -16,7 +16,7 @@ int         => 42                              # int value
 float       => 3.14159265                      # float value
 string      => "string"                        # List of characters (string)
 list        => [1, "hey", 3]                   # List of values (list)
-tuple       => (1, "hey", 2)                   # Tuple
+tuple       => (1, "hey", 2)                   # Tuple, with at least one comma in the parenthesis
 dictionnary => {"name" => "Lucas", "age" => 3} # Dictionary of values (dict)
 booleen     => true/false                      # Boolean (bool)
 None        => None                            # zero value (None)

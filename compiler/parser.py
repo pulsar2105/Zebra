@@ -3,7 +3,7 @@ import re
 import lexer as lex
 import errors as err
 
-operators = ["=",
+operators = ["=", ".",
              "+", "-",
              "*", "/", "//", "%", "^",
              "+=", "-=", "*=", "/=", "//=", "%=", "^=",
@@ -38,14 +38,10 @@ def determine_lower_para_influences(tokens):
             influences.append(parentheses_influence)
 
     # if the level of influence of the brackets is greater than 0
-    # subtract 1, n times
+    # we ask to remove the extra brackets again
     if min(influences) > 0:
-        for i in range(min(influences)):
-            tokens = tokens[1:-1]
-            for iflu in range(len(influences)):
-                influences[iflu] = influences[iflu] - 1
-
-        return tokens, min(influences), influences
+        tokens = tokens[1:-1]
+        return determine_lower_para_influences(tokens)
 
     return tokens, min(influences), influences
 
@@ -98,10 +94,11 @@ def is_list_dict(tokens, opening_character, closing_character):
     # first check
     if type(tokens) == list and len(tokens) > 1:
         if tokens[0] == opening_character:
+            # list/dict empty
             if tokens[1] == closing_character:
                 return True, []
             else:
-                # we get the arguments
+                # we get the list/dict elements
                 arguments = []
                 influ = 1
                 check_point = 1
@@ -203,7 +200,8 @@ def line_parser(tokens):
     # "*" is for unpack all elements
     return [action, *arguments]
 
-# Test-----------------------
+# Test----------------------------------------
+
 data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10) * cos(10 + 1) * 'abcde' - 10 - sun.mass)"
 
 # we check if there are errors natively in the line
