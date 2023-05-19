@@ -1,6 +1,6 @@
 <!-- PROJECT SHIELDS -->
 
-Zebra ![Downloads](https://img.shields.io/github/downloads/pulsar2105/Zebra/total)</a> ![Contributors](https://img.shields.io/github/downloads/pulsar2105/Zebra/total)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a> ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=plastic)</a>
+Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=plastic)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a>
 ===============
 
 <!-- PROJECT LOGO -->
