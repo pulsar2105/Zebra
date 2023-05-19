@@ -114,7 +114,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the GPL v3.0 License. See `LICENSE` for more information.
+Distributed under the GNU v3.0 License. See `LICENSE` for more information.
 
 
 
@@ -122,7 +122,7 @@ Distributed under the GPL v3.0 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@pulsar2105](https://twitter.com/pulsar2105) - wingstone.hsart@gmail.com
+pulsar2105 - [@pulsar2105](https://twitter.com/pulsar2105) - wingstone.hsart@gmail.com
 
 Project Link: [https://github.com/PULSAR2105/Zebra](https://github.com/PULSAR2105/Zebra)
 

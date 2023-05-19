@@ -1,9 +1,9 @@
 bits 64 ; for 64 bits only
 
-; fonctions exterieur
+; external functionss
 extern GetStdHandle
 extern WriteConsoleA ; for console
-extern ExitProcess ; for exit
+extern ExitProcess   ; for exit
 
 section .data
 
@@ -13,8 +13,8 @@ section .bss
     b dq 1, 31
     c dq 1, 0
 
-    Handle resq 1 ; dynamic allocation
-    written resq 1
+    Handle resq 1  ; dynamic allocation
+    written resq 1 ; display
 
 section .text
     global main
