@@ -1,0 +1,6 @@
+nasm -f win64 <name>.asm -o <name>.obj
+.\GoLink.exe <name>.obj /entry <main> /console kernel32.dll
+
+OR
+
+nasm -f win64 <name>.asm -o <name>.obj && .\GoLink.exe <name>.obj /entry <main> /console kernel32.dll
