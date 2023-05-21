@@ -12,7 +12,9 @@ section .bss
 
 section .text
     global main
+    
     main:
+    mov rbp, rsp; for correct debugging
         mov rcx, -11
         call GetStdHandle
 
