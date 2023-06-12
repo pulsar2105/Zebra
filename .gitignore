@@ -1,2 +1,8 @@
 **/__pycache__/
 /.vscode
+# exe files
+*.exe
+
+# object files
+*.o
+*.obj
