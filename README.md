@@ -9,9 +9,6 @@ Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=pl
   <a href="https://github.com/PULSAR2105/Zebra">
     <img src="logo/icon_v1.0.png " alt="Logo" width="100" height="100">
   </a>
-  <p align="center">
-    An awesome programming langauage, compiled, fast and simple!
-  </p>
 </div>
 
 <!-- description -->
