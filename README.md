@@ -7,7 +7,7 @@ Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=pl
 <br />
 <div align="center">
   <a href="https://github.com/PULSAR2105/Zebra">
-    <img src="logo/icon_v2.0.png" alt="Logo" width="100" height="100">
+    <img src="logo/icon_v2.0.png" alt="Logo" width="150" height="150">
   </a>
 </div>
 
