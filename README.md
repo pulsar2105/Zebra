@@ -75,7 +75,7 @@ If you have any questions, feel free to reach out to me on [Twitter](https://twi
 ## 🙇 Author
 #### pulsar2105
 - Twitter: [@pulsar2105](https://twitter.com/pulsar2105)
-- Github: [https://github.com/pulsar2105/Zebra](https://github.com/pulsar2105/Zebra)
+- Github: [https://github.com/pulsar2105](https://github.com/pulsar2105)
 
 ## ➤ License
 Distributed under the GNU v3.0 License. See `LICENSE` for more information.

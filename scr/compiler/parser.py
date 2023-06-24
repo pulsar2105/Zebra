@@ -8,10 +8,11 @@ operators = ["=", ".",
              "*", "/", "//", "%", "^",
              "+=", "-=", "*=", "/=", "//=", "%=", "^=",
              "<", ">", "<=", ">=", "!=", "==",
-             "and", "or", "xor", "not"]
+             "and", "or", "xor", "in", "nand", "nor", "xnor", "nin"]
 
 operators_priority = [["="],
-                      ["and", "or", "xor", "in"],
+                      ["and", "or", "xor", "in", "nand", "nor", "xnor", "nin"],
+                      ["not"],
                       ["<", ">", "<=", ">=", "!=", "=="],
                       ["+", "-"],
                       ["*", "/", "//", "%"],
@@ -274,6 +275,7 @@ def line_parser(tokens):
     # "*" is for unpack all elements
     return [action, *arguments]
 
+
 # Test----------------------------------------
 
 data = "b = -(10 - value * (--3*32) - sin(5*10-19, 2) + (-a) + fact(10) * cos(10 + 1) * 'abcde' - 10 - sun.mass)"
@@ -292,9 +294,9 @@ print(tree)
 # infinite mode
 while True:
     data = input(">>> ")
-    err.string_error(data)
+    #err.string_error(data)
     tokens = lex.line_lexer(data)
     print(tokens)
-    err.errors(tokens)
+    #err.errors(tokens)
     tree = line_parser(tokens)
     print(tree)

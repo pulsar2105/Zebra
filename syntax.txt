@@ -10,11 +10,14 @@ Types and variables:
 defined variable     => <name> = <value> # variable with it's value
 not defined variable => <type> <name>    # minimum size variable without value
 
-int         => variable bits
-float       => 128 bits
-list <type> => list
-str         => 32 bits
-bool        => 8 bits
+int   => variable bits
+int64 => 64 bits
+float => 128 bits
+list  => list
+tuple => tuple
+dict  => dict
+str   => 32 bits
+bool  => 8 bits
 
 int         => 42                              # int value
 float       => 3.14159265                      # float value
@@ -29,7 +32,7 @@ Operators:
 operators             => [=, +, -, *, /, //, ^, % (modulo)]
 condensed operators   => [+=, -=, *=, /=, //=, ^=, %=]
 comparative operators => [==, !=, >, <, >=, <=, in, not]
-logics operators      => [and, or, xor, not]
+logics operators      => [and, or, xor, nand, nor, nxor]
 list range            => [<start> : <end> : <step>] # interval of a list
 
 Conditions:
@@ -44,7 +47,7 @@ loop for         => for <variable(s)> in <list>:
 Priorities from left to right:
 ++++++++ "()", "[]", "{}"
 +++++++  "="
-++++++   "and", "or", "xor", "in"
+++++++   "and", "or", "xor", "in", "nand", "nor", "xnor", "nin"
 +++++    "<", ">", "<=", ">=", "!=", "=="
 ++++     "+", "-"
 +++      "*", "/", "//", "%"
@@ -52,8 +55,8 @@ Priorities from left to right:
 +        "." #opp
 
 Functions:
-functions       => def <name>(<parameters>):
-call a function => <name>(<parameters>)
+definie functions => def <name>(<parameters>):
+call a function   => <name>(<parameters>)
 
 Objects:
 attributes => <object>.<attribut>
@@ -62,6 +65,8 @@ functions  => <objects>.<functions>()
 Basic functions:
 print(<message(s)>)           # display value(s) separated by commas
 input(<message(s)>)           # displays the message and requests a value
+
+not(<bool>)                   # invert boolean value
 
 len(<list>)                   # length of a list
 range(<start>, <end>, <step>) # list creation (range)
