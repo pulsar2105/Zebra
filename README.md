@@ -17,7 +17,11 @@ Zebra is a open source programming language. With a syntax designed to be as sim
 It has been designed to exploit the full potential of 64-bit architecture.
 
 ## 🛠️ Tech Stack
-- [NASM](https://www.nasm.us/)
+Assembly to object
+- [NASM](https://nasm.us/)
+Object to exe
+- [MinGW-w64](https://mingw-w64.org/)
+Everything else
 - [Python](python.org)
 
 <!-- GETTING STARTED -->
@@ -30,12 +34,11 @@ A compiler for NASM and a link editor. Normally, everything is available in the 
 * Windows :
   ```
   compiler : nasm
-  linker : GoLink.exe
+  linker : GCC
   ```
 * Linux :
   ```
-  compiler : nasm
-  linker : ld
+  is coming
   ```
 * MacOS :
   ```
@@ -47,8 +50,6 @@ A compiler for NASM and a link editor. Normally, everything is available in the 
 print("Hello World!")
 ```
 Do anything with Zebra, and don't hesitate to use it to its full potential. Is created for.
-
-<!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 
 <!-- ROADMAP -->
 <!--
