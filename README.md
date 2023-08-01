@@ -17,12 +17,9 @@ Zebra is a open source programming language. With a syntax designed to be as sim
 It has been designed to exploit the full potential of 64-bit architecture.
 
 ## 🛠️ Tech Stack
-Assembly to object
-- [NASM](https://nasm.us/)
-Object to exe
-- [MinGW-w64](https://mingw-w64.org/)
-Everything else
-- [Python](python.org)
+- [NASM](https://nasm.us/) Assembly to object
+- [MinGW-w64](https://mingw-w64.org/) Object to exe
+- [Python](python.org) Everything else
 
 <!-- GETTING STARTED -->
 ## Getting Started
