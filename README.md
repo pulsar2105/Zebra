@@ -26,7 +26,7 @@ It has been designed to exploit the full potential of 64-bit architecture.
 
 ### Prerequisites
 
-A compiler for NASM and a link editor. Normally, everything is available in the repository.
+A compiler for NASM and a link editor.
 
 * Windows :
   ```
