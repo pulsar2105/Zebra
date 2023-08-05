@@ -1,4 +1,6 @@
 @echo off
+set "CurrentDir=%~dp0"
+
 set "FullPath=%~1"
 if "%FullPath%" == "" (
     echo None path
@@ -12,6 +14,8 @@ for %%I in ("%FullPath%") do (
     set "FileDirectory=%%~dpI"
 )
 
-nasm -f win64 %FullPath% -o %FileDirectory%%FileNameWithoutExtension%.o
-gcc %FileDirectory%%FileNameWithoutExtension%.o -e main -o %FileDirectory%%FileNameWithoutExtension%
+@echo on
+
+nasm -f win64 %FullPath% -o %FileDirectory%%FileNameWithoutExtension%.obj
+%CurrentDir%\linker\windows\GoLink.exe %FileDirectory%%FileNameWithoutExtension%.obj /entry main /console kernel32.dll
 %FileDirectory%%FileNameWithoutExtension%.exe

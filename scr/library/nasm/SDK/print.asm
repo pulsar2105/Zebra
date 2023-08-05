@@ -8,7 +8,7 @@ extern ExitProcess   ; for exit
 
 section .data
     ; message in utf16
-    message dq 8, __utf16__('🎈🎈🎈🎈🎈🎈🎈🎈'), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
+    message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
     last_chr dq 1, 10, 0
 
 section .bss
@@ -18,8 +18,6 @@ section .text
     global main
 
     main:
-        mov rbp, rsp; for correct debugging
-
         ; we print message print(data, last_chr)
         push message
         push last_chr
