@@ -6,7 +6,7 @@ extern WriteConsoleW ; for utf-8 console
 
 extern ExitProcess   ; for exit
 
-%include "C:\Users\vince\Desktop\Zebra\scr\library\nasm\SDK\exit.asm"
+%include "exit.asm"
 
 section .data
     ; message in utf16
