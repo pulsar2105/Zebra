@@ -16,6 +16,7 @@ for %%I in ("%FullPath%") do (
 
 @echo on
 
-nasm -f win64 %FullPath% -o %FileDirectory%%FileNameWithoutExtension%.obj
-%CurrentDir%\linker\windows\GoLink.exe %FileDirectory%%FileNameWithoutExtension%.obj /entry main /console kernel32.dll
-%FileDirectory%%FileNameWithoutExtension%.exe
+mkdir %FileDirectory%\exe
+nasm -f win64 %FullPath% -o %FileDirectory%\exe\%FileNameWithoutExtension%.o
+%CurrentDir%\linker\windows\GoLink.exe %FileDirectory%\exe\%FileNameWithoutExtension%.o /entry main /console kernel32.dll
+%FileDirectory%\exe\%FileNameWithoutExtension%.exe

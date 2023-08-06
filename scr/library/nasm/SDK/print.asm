@@ -6,6 +6,8 @@ extern WriteConsoleW ; for utf-8 console
 
 extern ExitProcess   ; for exit
 
+%include "C:\Users\vince\Desktop\Zebra\scr\library\nasm\SDK\exit.asm"
+
 section .data
     ; message in utf16
     message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
@@ -27,6 +29,9 @@ section .text
         push last_chr
         call print_log
 
+        push 1 ; if exit program must print additional informations (0:no, 1:yes)
+        call exit
+
         xor ecx, ecx
         call ExitProcess
 
@@ -34,25 +39,25 @@ section .text
     ; rsp+8 = last character to display
     print:
         ; data
-        mov rcx, -11            ; normal settings
+        mov rcx, -11       ; normal settings
         call GetStdHandle
 
-        mov rcx, rax            ; handle
-        mov rdx, [rsp+16]       ; message, +8 to skip the length field
+        mov rcx, rax       ; handle
+        mov rdx, [rsp+16]  ; message, +8 to skip the length field
         add rdx, 8
-        mov r8, [rsp+16]        ; message length (and the final character)
+        mov r8, [rsp+16]   ; message length (and the final character)
         mov r8, [r8]
         imul r8, 2
-        inc r8                  ;
-        mov r9, written         ; written characters
-        push 0                  ; lpReserved
-        call WriteConsoleW      ; utf-8
+        inc r8             ;
+        mov r9, written    ; written characters
+        push 0             ; lpReserved
+        call WriteConsoleW ; utf-8
         ; stack cleaning
         pop rcx
 
         ; if data is NULL character, 0
         cmp qword [rsp+8], 0
-        je print_end
+        je __print_end__
 
         ; last character
         push qword [rsp+8]
@@ -61,7 +66,7 @@ section .text
 
         ret 16
 
-    print_end:
+    __print_end__:
         ret 16
 
     ; print data ANSI
@@ -87,7 +92,7 @@ section .text
 
         ; if data is NULL character, 0
         cmp qword [rsp+8], 0
-        je print_log_end
+        je __print_log_end__
 
         ; last character
         push qword [rsp+8]
@@ -96,5 +101,5 @@ section .text
 
         ret 16
 
-    print_log_end:
+    __print_log_end__:
         ret 16

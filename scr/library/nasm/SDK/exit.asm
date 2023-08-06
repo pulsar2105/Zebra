@@ -11,28 +11,17 @@ section .bss
     written_exit resq 1 ; display
 
 section .text
-    global main
-
-    main:
-        mov rbp, rsp; for correct debugging
-
-        mov rax, 0
-        mov rcx, 18446744073709551000
-        call big_loop
-
-        push 1 ; if exit program must print additional informations (0:no, 1:yes)
-        call exit
-
-    big_loop:
-        inc rax; rax = rax + 1
-        cmp rax, rcx
-        je big_loop
-        ret
+    ;;global main
+    ;;main:
+    ;;    push 0 ; if exit program must print additional informations (0:no, 1:yes)
+    ;;    call exit
 
     ; [rsp+8] additional informations yes/no
     exit:
         cmp qword [rsp+8], 1
         je exit_with_msg
+
+        pop rcx
 
         xor ecx, ecx
         call ExitProcess
@@ -53,4 +42,7 @@ section .text
         call WriteConsoleA
         ; stack cleaning
         pop rcx
+
+        xor ecx, ecx
+        call ExitProcess
 
