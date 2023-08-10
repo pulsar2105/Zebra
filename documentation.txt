@@ -54,7 +54,7 @@ else      => else:
 
 Loops :
 conditional loop => while <condition>:
-loop for         => for <variable(s)> in <list>:
+loop for         => for <variable> in <list and range>:
 
 Priorities from left to right:
 ++++++++ "()", "[]", "{}"
@@ -64,7 +64,7 @@ Priorities from left to right:
 ++++     "+", "-"
 +++      "*", "/", "//", "%"
 ++       "^"
-+        "." #opp
++        "." #OPP
 
 Functions:
 definie functions => def <name>(<parameters>):
@@ -93,3 +93,20 @@ cell(<value>)                 # rounded down to the nearest whole number
 int(<value>)                  # converts a value to an integer if possible
 float(<value>)                # converts a value to a float if possible
 str(<value>)                  # converts a value to a string if possible
+
+
+RESTRICTIONS :
+
+Never use variable or a function named with special caracters.
+And specifically like that :
+
+$<name>
+$my_variable = 5
+$stupid_variable = "hello"
+
+Variable and functions named $<name> are use in internal for library and assembly code
+If you use variable named like that you risk to modify variables in assembly code
+
+
+HOW IT WORK :
+

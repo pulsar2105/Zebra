@@ -10,23 +10,22 @@ extern ExitProcess   ; for exit
 
 section .data
     ; message in utf16, must be in utf16 or utf32, utf8 don't work
-    message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
-    last_chr dq 1, 10, 0
+    $message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
+    $last_chr dq 1, 10, 0
 
 section .bss
     written resq 1 ; display
 
 section .text
     global main
-
     main:
         ; we print message print(data, last_chr)
-        push message
-        push last_chr
+        push $message
+        push $last_chr
         call print
 
-        push message
-        push last_chr
+        push $message
+        push $last_chr
         call print_log
 
         push 1 ; if exit program must print additional informations (0:no, 1:yes)
@@ -36,7 +35,7 @@ section .text
         call ExitProcess
 
     ; rsp+16 = data to display
-    ; rsp+8 = last character to display
+    ; rsp+8 = last character to display$print_end
     print:
         ; data
         mov rcx, -11       ; normal settings
@@ -57,7 +56,7 @@ section .text
 
         ; if data is NULL character, 0
         cmp qword [rsp+8], 0
-        je __print_end__
+        je $print_end
 
         ; last character
         push qword [rsp+8]
@@ -66,7 +65,7 @@ section .text
 
         ret 16
 
-    __print_end__:
+    $print_end:
         ret 16
 
     ; print data ANSI
@@ -92,7 +91,7 @@ section .text
 
         ; if data is NULL character, 0
         cmp qword [rsp+8], 0
-        je __print_log_end__
+        je $print_log_end
 
         ; last character
         push qword [rsp+8]
@@ -101,5 +100,5 @@ section .text
 
         ret 16
 
-    __print_log_end__:
+    $print_log_end:
         ret 16

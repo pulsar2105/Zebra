@@ -3,5 +3,15 @@
 To do list :
 
 🟢 faire un script pour compiler un fichier asm
-🔴 faire un script python pour passer d'un fichier assembleur NASM à un fichier json avec toutes les séctions bien ranger et utilisable comme des fonctions
-🔴 faire un script python pour utiliser les fichiers json qui stocke le nasm et ainsi fusionner deux script assembleur NASM
+🟢 Vérifier que une section assembleur peut être passer en argument : OUI ON PEUT
+
+🟠 Documenter le code au fur et à mesure
+
+🔴 Nettoyer les premiers scripts de la SDK
+🔴 Le fichier "SDK.asm" doit se compiler sans erreur
+🔴 Documenter le fonctionnement du compiler
+
+🔴 Créer les fonctions pour alllouer de la mémoire et la dé-allouer
+🔴 Créer la fonction pour donner une valeur à une variables
+🔴 Créer la fonction "add" pour additionner deux entiers
+🔴 Créer la fonction "sub" pour soustraire deux entiers
