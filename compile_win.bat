@@ -16,8 +16,12 @@ for %%I in ("%FullPath%") do (
 
 :: active command display
 @echo on
+
 :: creat directory to store executable + objects files
 mkdir %FileDirectory%\exe
+:: remove old files .obj + .exe
+del %FileDirectory%\exe\%FileNameWithoutExtension%.obj
+del %FileDirectory%\exe\%FileNameWithoutExtension%.exe
 
 :: creat object file from asm file
 nasm -i %FileDirectory% -f win64 %FullPath% -o %FileDirectory%\exe\%FileNameWithoutExtension%.obj
