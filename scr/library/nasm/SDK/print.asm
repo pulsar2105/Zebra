@@ -9,7 +9,7 @@ extern ExitProcess   ; for exit
 %include "exit.asm"
 
 section .data
-    ; message in utf16
+    ; message in utf16, must be in utf16 or utf32, utf8 don't work
     message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
     last_chr dq 1, 10, 0
 
