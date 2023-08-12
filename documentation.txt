@@ -108,5 +108,22 @@ Variable and functions named $<name> are use in internal for library and assembl
 If you use variable named like that you risk to modify variables in assembly code
 
 
-HOW IT WORK :
+DOCUMENTATION :
 
+##  exit(msg=bool)
+    => exit the programme, with or not message
+
+    input:
+        msg, boolean, 1 exit with message, 0exit without message
+    ouput:
+        None
+
+##  hello_world(None)
+    => print "Hello world!"
+
+    input:
+        nothing
+    ouput:
+        None
+
+HOW IT WORK :

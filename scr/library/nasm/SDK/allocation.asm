@@ -52,7 +52,7 @@ section .text
 
         xor ecx, ecx
         call ExitProcess
-        
+
         ; to prepare for allocation
     pre_alloc:
         call GetProcessHeap ; Set RAX to heap handle

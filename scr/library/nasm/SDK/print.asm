@@ -6,7 +6,7 @@ extern WriteConsoleW ; for utf-8 console
 
 extern ExitProcess   ; for exit
 
-%include "exit.asm"
+; must include exit.asm
 
 section .data
     ; message in utf16, must be in utf16 or utf32, utf8 don't work
@@ -17,22 +17,22 @@ section .bss
     written resq 1 ; display
 
 section .text
-    global main
-    main:
-        ; we print message print(data, last_chr)
-        push $message
-        push $last_chr
-        call print
+    ;global main
+    ;main:
+    ;    ; we print message print(data, last_chr)
+    ;    push $message
+    ;    push $last_chr
+    ;    call print
 
-        push $message
-        push $last_chr
-        call print_log
+    ;    push $message
+    ;    push $last_chr
+    ;    call print_log
 
-        push 1 ; if exit program must print additional informations (0:no, 1:yes)
-        call exit
+    ;    push 1 ; if exit program must print additional informations (0:no, 1:yes)
+    ;    call exit
 
-        xor ecx, ecx
-        call ExitProcess
+    ;    xor ecx, ecx
+    ;    call ExitProcess
 
     ; rsp+16 = data to display
     ; rsp+8 = last character to display$print_end

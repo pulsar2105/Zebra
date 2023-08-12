@@ -5,15 +5,15 @@ extern WriteConsoleA
 extern ExitProcess
 
 section .data
-    message db "Hello, World!", 10
+    $hl_message db "Hello, World!", 10
 
 section .bss
-    written resq 1
+    $hl_written resq 1
 
 section .text
-    global main
+    global hello_world
 
-    main:
+    hello_world:
         mov rcx, -11
         call GetStdHandle
 
@@ -21,9 +21,9 @@ section .text
         sub rsp, 8
 
         mov rcx, rax
-        mov rdx, message
+        mov rdx, $hl_message
         mov r8, 13
-        mov r9, written
+        mov r9, $hl_written
         mov qword [rsp+32], 0
         call WriteConsoleA
 

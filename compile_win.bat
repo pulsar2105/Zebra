@@ -18,14 +18,14 @@ for %%I in ("%FullPath%") do (
 @echo on
 
 :: creat directory to store executable + objects files
-mkdir %FileDirectory%\exe
+mkdir %FileDirectory%\compiled
 :: remove old files .obj + .exe
-del %FileDirectory%\exe\%FileNameWithoutExtension%.obj
-del %FileDirectory%\exe\%FileNameWithoutExtension%.exe
+del %FileDirectory%\compiled\%FileNameWithoutExtension%.obj
+del %FileDirectory%\compiled\%FileNameWithoutExtension%.exe
 
 :: creat object file from asm file
-nasm -i %FileDirectory% -f win64 %FullPath% -o %FileDirectory%\exe\%FileNameWithoutExtension%.obj
-:: compile object file to exe file
-%CurrentDir%\linker\windows\GoLink.exe %FileDirectory%\exe\%FileNameWithoutExtension%.obj /entry main /console kernel32.dll
+nasm -i %FileDirectory% -f win64 %FullPath% -o %FileDirectory%\compiled\%FileNameWithoutExtension%.obj
+:: compile object file to compiled file
+%CurrentDir%\linker\windows\GoLink.exe %FileDirectory%\compiled\%FileNameWithoutExtension%.obj /entry main /console kernel32.dll
 :: execut exe file
-%FileDirectory%\exe\%FileNameWithoutExtension%.exe
+%FileDirectory%\compiled\%FileNameWithoutExtension%.exe

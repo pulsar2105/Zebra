@@ -5,18 +5,18 @@ extern WriteConsoleA ; for log console
 extern ExitProcess
 
 section .data
-    exit_msg dq 10, "bye bye !", 10, 0
+    $exit_msg dq 10, "bye bye !", 10, 0
 
 section .bss
-    written_exit resq 1 ; display
+    $exit_written resq 1 ; display
 
 section .text
-    ;;global main
-    ;;main:
-    ;;    push 0 ; if exit program must print additional informations (0:no, 1:yes)
-    ;;    call exit
+    ;global main
+    ;main:
+    ;    push 0 ; if exit program must print additional informations (0:no, 1:yes)
+    ;    call exit
 
-    ; [rsp+8] additional informations yes/no
+    ; [rsp+8] additional informations yes/no, 1/0
     exit:
         cmp qword [rsp+8], 1
         je exit_with_msg
@@ -37,7 +37,7 @@ section .text
         mov r8, [r8]
         imul r8, 2
         inc r8              ;
-        mov r9, written_exit     ; written characters
+        mov r9, $exit_written     ; written characters
         push 0              ; lpReserved
         call WriteConsoleA
         ; stack cleaning
