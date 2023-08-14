@@ -1,6 +1,6 @@
 <!-- PROJECT SHIELDS -->
 
-Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=plastic)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a>
+Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra)</a> ![Issues](https://img.shields.io/github/issues/pulsar2105/Zebra)</a>
 ===============
 
 <!-- PROJECT LOGO -->
