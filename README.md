@@ -16,7 +16,7 @@ Zebra ![License](https://img.shields.io/github/license/pulsar2105/Zebra?style=pl
 Zebra is a open source programming language. With a syntax designed to be as simple as possible and and good performance.
 It has been designed to exploit the full potential of 64-bit architecture.
 
-## 🛠️ Tech Stack
+## 👨‍🔧 Tech Stack
 - [NASM](https://nasm.us/) Assembly to object
 - [MinGW-w64](https://mingw-w64.org/) Object to exe
 - [Python](python.org) Everything else
@@ -42,24 +42,31 @@ A compiler for NASM and a link editor.
   in coming
   ```
 
+
 ## 🧑🏻‍💻 Usage
+Do anything with Zebra, and don't hesitate to use it to its full potential. Is created for.
+<!--
 ```python
 print("Hello World!")
 ```
-Do anything with Zebra, and don't hesitate to use it to its full potential. Is created for.
+-->
 
-<!-- ROADMAP -->
-<!--
-## Roadmap
+## 🛠️ Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
+Now the project is currently a protoype not finish so don't use it now.
+But if you want, you can contribute or just ask for more details.
+And if have ideas don't hesitate to tell me them.
+
+- [x] Creat a script to compile .asm files
+- [ ] Finish code analysis
+- [ ] Add the add function to the SDK
+- [ ] Add the sub function to the SDK
+- [ ] Add all mathematical functions into the SDK
+- [ ] Do the assembly code generation
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
--->
 
 
 ## 🍰 Contributing
