@@ -1,0 +1,10 @@
+In generated assembly, the arguments are passed in the stack.
+Passed from left-to-right
+
+ex :
+function(arg1, arg2, arg3)
+=>
+push arg1
+push arg2
+push arg3
+call function

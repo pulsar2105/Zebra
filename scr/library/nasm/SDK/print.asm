@@ -6,15 +6,10 @@ extern WriteConsoleW ; for utf-8 console
 
 extern ExitProcess   ; for exit
 
-; must include exit.asm
-
 section .data
-    ; message in utf16, must be in utf16 or utf32, utf8 don't work
-    $message dq 8, __utf16__("🎈🎈🎈🎈🎈🎈🎈🎈"), 0 ; we must add a single character at the end of the string ¯\_(ツ)_/¯
-    $last_chr dq 1, 10, 0
 
 section .bss
-    written resq 1 ; display
+    $print_written resq 1 ; display
 
 section .text
     ;global main
@@ -38,19 +33,19 @@ section .text
     ; rsp+8 = last character to display$print_end
     print:
         ; data
-        mov rcx, -11       ; normal settings
+        mov rcx, -11            ; normal settings
         call GetStdHandle
 
-        mov rcx, rax       ; handle
-        mov rdx, [rsp+16]  ; message, +8 to skip the length field
+        mov rcx, rax            ; handle
+        mov rdx, [rsp+16]       ; message, +8 to skip the length field
         add rdx, 8
-        mov r8, [rsp+16]   ; message length (and the final character)
+        mov r8, [rsp+16]         ; message length (and the final character)
         mov r8, [r8]
         imul r8, 2
-        inc r8             ;
-        mov r9, written    ; written characters
-        push 0             ; lpReserved
-        call WriteConsoleW ; utf-8
+        inc r8                  ;
+        mov r9, $print_written  ; written characters
+        push 0                  ; lpReserved
+        call WriteConsoleW      ; utf-8
         ; stack cleaning
         pop rcx
 
@@ -83,7 +78,7 @@ section .text
         mov r8, [r8]
         imul r8, 2
         inc r8                  ;
-        mov r9, written         ; written characters
+        mov r9, $print_written  ; written characters
         push 0                  ; lpReserved
         call WriteConsoleA
         ; stack cleaning

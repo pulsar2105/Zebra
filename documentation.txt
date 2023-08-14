@@ -110,11 +110,20 @@ If you use variable named like that you risk to modify variables in assembly cod
 
 DOCUMENTATION :
 
+##  print(msg=str, last_chr=str)
+    => display to the terminal
+
+    input:
+        msg, string, message to display
+        last_chr, string,  message to be displayed after main message display
+    ouput:
+        None
+
 ##  exit(msg=bool)
     => exit the programme, with or not message
 
     input:
-        msg, boolean, 1 exit with message, 0exit without message
+        msg, boolean, 1 exit with message, 0 exit without message
     ouput:
         None
 
