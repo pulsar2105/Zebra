@@ -17,6 +17,8 @@ section .bss
 section .text
     global main
     main:
+        mov rbp, rsp; for correct debugging
+
         ; we print message print(message, last_chr)
         push $message
         push $last_chr

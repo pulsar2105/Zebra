@@ -2,16 +2,16 @@
 
 To do list :
 
-🟢 faire un script pour compiler un fichier asm
-🟢 Vérifier que une section assembleur peut être passer en argument : OUI ON PEUT
+🟢 Create a script to compile an asm file
+🟢 Check that an assembler section can be passed as an argument: YES WE CAN
 
-🟠 Documenter le code au fur et à mesure
+🟠 Document code as you go
 
-🔴 Nettoyer les premiers scripts de la SDK
-🔴 Le fichier "SDK.asm" doit se compiler sans erreur
-🔴 Documenter le fonctionnement du compiler
+🔴 Clean up the first SDK scripts
+🔴 "SDK.asm" file must compile without error
+🔴 Document how the compiler works
 
-🔴 Créer les fonctions pour alllouer de la mémoire et la dé-allouer
-🔴 Créer la fonction pour donner une valeur à une variables
-🔴 Créer la fonction "add" pour additionner deux entiers
-🔴 Créer la fonction "sub" pour soustraire deux entiers
+🔴 Create functions to allocate and de-allocate memory
+🔴 Create the function to give a value to a variable
+🔴 Create the "add" function to add two integers
+🔴 Create "sub" function to subtract two integers
