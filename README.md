@@ -63,11 +63,6 @@ And if have ideas don't hesitate to tell me them.
 - [ ] Add the sub function to the SDK
 - [ ] Add all mathematical functions into the SDK
 - [ ] Do the assembly code generation
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
 
 ## 🍰 Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are _greatly appreciated_.
