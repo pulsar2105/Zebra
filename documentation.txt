@@ -136,3 +136,32 @@ DOCUMENTATION :
         None
 
 HOW IT WORK :
+
+The stack:
+    In generated assembly, the arguments are passed in the stack.
+    Passed from left-to-right
+
+    ex :
+    function(arg1, arg2, arg3)
+    =>
+    push arg1
+    push arg2
+    push arg3
+    call function
+
+Variables:
+    Each variables are do like this:
+
+    - Anchor -----------------
+    |                        |
+    |  - Value ------------  |
+    |  |                  |  |
+    |  |                  |  |
+    |  --------------------  |
+    |------------------------|
+
+    The advantage is we can change the variable value like we want.
+    The "Anchor" is here to keep in memory the pointer to the value.
+    The disadvantage is a value will require more memory to store a value.
+    One solution is to create a specific type of variable that does not use the anchoring system,
+    the value requires less memory, but can be modified as required.
