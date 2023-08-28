@@ -137,8 +137,13 @@ def if_access(tokens):
                         i = 2 # 2 because we skip the fonction name and the first "("
                         check_point = 2
                         while tokens[i] != "]":
-                            if tokens[i] == ":":
-                                arguments.append(tokens[check_point:i])
+                            if tokens[i] in ":,":
+                                # if there isn't an argument we replace it with "None"
+                                if tokens[check_point:i] != []:
+                                    arguments.append(tokens[check_point:i])
+                                else:
+                                    arguments.append("None")
+
                                 check_point = i+1
                             i += 1
 
