@@ -13,6 +13,8 @@ SYNTAX :
 Comments:
 # <your comment>
 
+Commands are separated by line breaks (\n) or semicolons (;).
+
 Import other contents:
 import <library>   # other installed library
 import <code_path> # other code file to import
@@ -28,7 +30,8 @@ float => 128 bits
 list  => list
 tuple => tuple
 dict  => dict
-str   => 32 bits
+str   => 32 bits utf8
+stra  => 8 bits ASCII
 bool  => 8 bits
 
 int         => 42                              # int value
@@ -48,13 +51,13 @@ logics operators      => [and, or, xor, nand, nor, nxor]
 list range            => [<start> : <end> : <step>] # interval of a list
 
 Conditions:
-condition => if <condition>:
-else if   => elif <condition>:
-else      => else:
+condition => if (<condition>) {}
+else if   => elif (<condition>) {}
+else      => else {}
 
 Loops :
-conditional loop => while <condition>:
-loop for         => for <variable> in <list and range>:
+conditional loop => while (<condition>) {}
+loop for         => for (<variable>, <iterable>) {}
 
 Priorities from left to right:
 ++++++++ "()", "[]", "{}"
@@ -67,7 +70,7 @@ Priorities from left to right:
 +        "." #OPP
 
 Functions:
-definie functions => def <name>(<parameters>):
+definie functions => def <name>(<parameters>) {}
 call a function   => <name>(<parameters>)
 
 Objects:
@@ -92,7 +95,8 @@ cell(<value>)                 # rounded down to the nearest whole number
 
 int(<value>)                  # converts a value to an integer if possible
 float(<value>)                # converts a value to a float if possible
-str(<value>)                  # converts a value to a string if possible
+str(<value>)                  # converts a value to a ut8 string if possible
+stra(<value>)                 # converts a value to a ascii string if possible
 
 
 RESTRICTIONS :
